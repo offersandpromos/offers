@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon offers and Cashback</title>
+    <title>Amazon Offers and Cashback</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,7 +28,8 @@
 
         h1 {
             color: #333;
-            font-size: 24px;
+            font-size: 22px;
+            font-weight: 600;
         }
 
         p {
@@ -37,18 +38,19 @@
         }
 
         button {
-            background-color: #4CAF50;
+            background-color: #ff9900;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            width: 100%;
             transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #e68900;
         }
 
         #result {
@@ -63,6 +65,21 @@
             font-size: 18px;
             color: #28a745;
             font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
     <script>
@@ -102,11 +119,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>Enable Location to Check Eligibility (This Link Only Eligible for few members Surrounded Near TRICHY) </h1>
-        <p>Click Next to Claim your Winning Prize :</p>
-        <button onclick="requestLocation()">Claim upto ₹5000 Rs</button>
+        <h1>Enable Location to Check Eligibility (This Link is Only Eligible for Members Near TRICHY)</h1>
+        <p>Click the button below to claim your winning prize of up to ₹5000!</p>
+        <button onclick="requestLocation()">Claim up to ₹5000</button>
         <p id="result"></p>
         <p id="offer" class="offer"></p>
+        <div class="footer">
+            <p>By clicking claim, you agree to our <a href="#">Privacy Policy</a>.</p>
+        </div>
     </div>
 </body>
 </html>
