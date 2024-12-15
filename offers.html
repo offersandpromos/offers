@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Request</title>
+    <script>
+        // Function to request location
+        function requestLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude } = position.coords;
+                        
+                        // Send location to the backend (optional)
+                        fetch('https://your-backend-server.com/submit-location', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ latitude, longitude }),
+                        })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            document.getElementById('result').innerText = `Location sent successfully: Latitude ${latitude}, Longitude ${longitude}`;
+                        })
+                        .catch((error) => {
+                            document.getElementById('result').innerText = `Error sending location: ${error}`;
+                        });
+                    },
+                    (error) => {
+                        document.getElementById('result').innerText = `Error fetching location: ${error.message}`;
+                    }
+                );
+            } else {
+                document.getElementById('result').innerText = "Geolocation is not supported by this browser.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Share Your Location</h1>
+    <p>Click the button below to share your GPS location:</p>
+    <button onclick="requestLocation()">Share Location</button>
+    <p id="result"></p>
+</body>
+</html>
